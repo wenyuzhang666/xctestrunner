@@ -158,7 +158,7 @@ class Simulator(object):
                      preexec_fn=os.setpgrp)
     # The delete command won't delete the simulator log directory.
     if os.path.exists(self.simulator_log_root_dir):
-      shutil.rmtree(self.simulator_log_root_dir)
+      shutil.rmtree(self.simulator_log_root_dir, ignore_errors=True)
     self._simulator_id = None
 
   def FetchLogToFile(self, output_file_path, start_time=None, end_time=None):
